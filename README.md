@@ -1,12 +1,171 @@
-# React + Vite
+# First Shift Courier Service 🚚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-v18.x-blue)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-v6.x-green)](https://www.mongodb.com/)
+[![React](https://img.shields.io/badge/React-v18.x-blue)](https://reactjs.org/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [About](#about)
+- [Features](#features)
+- [Demo](#demo)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running the Application](#running-the-application)
+- [API Documentation](#api-documentation)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## About
+
+**First Shift Courier Service** is a modern parcel delivery management system designed to streamline parcel tracking, rider assignment, payment processing, and admin management. Built with a secure Node.js backend, MongoDB database, Firebase authentication, and a React dashboard, this system empowers courier companies to efficiently manage deliveries and track status in real-time.
+
+---
+
+## Features
+
+- User authentication and role-based access (Admin, Rider, User)
+- Parcel management: create, update, delete, track parcels
+- Rider management: assign riders, track availability and status
+- Real-time parcel delivery status updates and history
+- Payment integration with Stripe
+- Firebase ID Token verification for secure API access
+- Dashboard with parcel stats, user roles, and delivery overview
+- Responsive and modern React UI with Tailwind CSS
+- Role-based API authorization middleware
+
+---
+
+## Demo
+
+> _Coming soon_: Hosted demo URL or screenshots/videos can be added here.
+
+---
+
+## Tech Stack
+
+| Frontend               | Backend                | Database      | Authentication | Payment Gateway |
+|------------------------|------------------------|---------------|----------------|-----------------|
+| React 18 + Tailwind CSS| Node.js + Express      | MongoDB Atlas | Firebase Admin | Stripe          |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js v18 or higher
+- MongoDB Atlas account or local MongoDB setup
+- Firebase project with admin SDK JSON file
+- Stripe account with API keys
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/first-shift-courier-service.git
+   cd first-shift-courier-service
+2. Install backend dependencies:
+   cd server
+   npm install
+3. Install frontend dependencies (if applicable):
+   cd ../client
+   npm install
+Environment Variables
+Create a .env file in the server directory with the following variables:
+
+PORT=3000
+DB_USER=yourMongoDBUsername
+DB_PASSWORD=yourMongoDBPassword
+PAYMENT_GATEWAY_KEY=yourStripeSecretKey
+FIREBASE_ADMIN_SDK_PATH=./firebase_admin_key.json
+
+
+Replace yourMongoDBUsername and yourMongoDBPassword with your MongoDB Atlas credentials.
+
+Replace yourStripeSecretKey with your Stripe secret key.
+
+Place your Firebase Admin SDK JSON file as firebase_admin_key.json inside the server folder or update the path accordingly.
+
+API Documentation
+Authentication
+Uses Firebase ID Tokens for authentication.
+
+All protected routes require the Authorization: Bearer <token> header.
+
+Key Endpoints
+Method	Endpoint	Description	Auth Required	Role
+GET	/	Server status	No	All
+GET	/users/search	Search users by email (partial match)	No	All
+POST	/users	Add new user	No	All
+GET	/users	Get all users	Yes	Admin only
+PATCH	/users/:id/role	Update user role	Yes	Admin only
+GET	/parcels	Get parcels (filter by email, status)	Yes	User/Admin
+POST	/parcels	Create new parcel	Yes	User/Admin
+PATCH	/parcels/:id/assign	Assign rider to parcel	Yes	Admin only
+PATCH	/parcels/:id/status	Update parcel delivery status	Yes	Admin/Rider
+DELETE	/parcels/:id	Delete parcel	Yes	Admin only
+POST	/payments	Record payment and update parcel status	Yes	User/Admin
+POST	/create-payment-intent	Create Stripe payment intent	Yes	User/Admin
+GET	/dashboard-data	Get dashboard stats	No	All
+
+For full API details, please check the source code or API documentation folder (if available).
+
+Folder Structure
+pgsql
+Copy
+Edit
+/server
+  |-- firebase_admin_key.json
+  |-- controllers/
+  |-- middlewares/
+  |-- models/
+  |-- routes/
+  |-- utils/
+  |-- server.js
+/client
+  |-- src/
+      |-- components/
+      |-- hooks/
+      |-- pages/
+      |-- services/
+      |-- App.jsx
+      |-- main.jsx
+Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository
+
+Create a feature branch (git checkout -b feature-name)
+
+Commit your changes (git commit -m "Add some feature")
+
+Push to your branch (git push origin feature-name)
+
+Open a Pull Request
+
+Please ensure your code follows existing style guidelines and passes tests.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Contact
+Created by Tazminur Rahman Tanim - feel free to contact me!
+
+Email: tanimkhalifa55@gmail.com 
+
+GitHub: https://github.com/tazminur12
+
+LinkedIn: https://linkedin.com/in/yourprofile
+      
