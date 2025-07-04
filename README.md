@@ -1,3 +1,8 @@
+Certainly! Here's your **entire README** properly formatted inside a single clean Markdown block, including all the sections you've listed with corrections and formatting fixes (like list structure, code blocks, and proper headings):
+
+---
+
+````markdown
 # First Shift Courier Service 🚚
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -74,58 +79,92 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/first-shift-courier-service.git
+   git clone https://github.com/tazminur12/first-shift-courier-service.git
    cd first-shift-courier-service
+````
+
 2. Install backend dependencies:
+
+   ```bash
    cd server
    npm install
-3. Install frontend dependencies (if applicable):
+   ```
+
+3. Install frontend dependencies:
+
+   ```bash
    cd ../client
    npm install
-Environment Variables
-Create a .env file in the server directory with the following variables:
+   ```
 
+---
+
+### Environment Variables
+
+Create a `.env` file in the `server` directory with the following variables:
+
+```env
 PORT=3000
 DB_USER=yourMongoDBUsername
 DB_PASSWORD=yourMongoDBPassword
 PAYMENT_GATEWAY_KEY=yourStripeSecretKey
 FIREBASE_ADMIN_SDK_PATH=./firebase_admin_key.json
+```
 
+* Replace `yourMongoDBUsername` and `yourMongoDBPassword` with your MongoDB Atlas credentials.
+* Replace `yourStripeSecretKey` with your Stripe secret key.
+* Place your Firebase Admin SDK JSON file as `firebase_admin_key.json` inside the `server` folder or update the path accordingly.
 
-Replace yourMongoDBUsername and yourMongoDBPassword with your MongoDB Atlas credentials.
+---
 
-Replace yourStripeSecretKey with your Stripe secret key.
+## Running the Application
 
-Place your Firebase Admin SDK JSON file as firebase_admin_key.json inside the server folder or update the path accordingly.
+From the `server` directory:
 
-API Documentation
-Authentication
-Uses Firebase ID Tokens for authentication.
+```bash
+npm start
+```
 
-All protected routes require the Authorization: Bearer <token> header.
+From the `client` directory:
 
-Key Endpoints
-Method	Endpoint	Description	Auth Required	Role
-GET	/	Server status	No	All
-GET	/users/search	Search users by email (partial match)	No	All
-POST	/users	Add new user	No	All
-GET	/users	Get all users	Yes	Admin only
-PATCH	/users/:id/role	Update user role	Yes	Admin only
-GET	/parcels	Get parcels (filter by email, status)	Yes	User/Admin
-POST	/parcels	Create new parcel	Yes	User/Admin
-PATCH	/parcels/:id/assign	Assign rider to parcel	Yes	Admin only
-PATCH	/parcels/:id/status	Update parcel delivery status	Yes	Admin/Rider
-DELETE	/parcels/:id	Delete parcel	Yes	Admin only
-POST	/payments	Record payment and update parcel status	Yes	User/Admin
-POST	/create-payment-intent	Create Stripe payment intent	Yes	User/Admin
-GET	/dashboard-data	Get dashboard stats	No	All
+```bash
+npm run dev
+```
 
-For full API details, please check the source code or API documentation folder (if available).
+---
 
-Folder Structure
-pgsql
-Copy
-Edit
+## API Documentation
+
+### Authentication
+
+* Uses Firebase ID Tokens for authentication.
+* All protected routes require the `Authorization: Bearer <token>` header.
+
+### Key Endpoints
+
+| Method | Endpoint                 | Description                             | Auth Required | Role        |
+| ------ | ------------------------ | --------------------------------------- | ------------- | ----------- |
+| GET    | `/`                      | Server status                           | No            | All         |
+| GET    | `/users/search`          | Search users by email (partial match)   | No            | All         |
+| POST   | `/users`                 | Add new user                            | No            | All         |
+| GET    | `/users`                 | Get all users                           | Yes           | Admin only  |
+| PATCH  | `/users/:id/role`        | Update user role                        | Yes           | Admin only  |
+| GET    | `/parcels`               | Get parcels (filter by email, status)   | Yes           | User/Admin  |
+| POST   | `/parcels`               | Create new parcel                       | Yes           | User/Admin  |
+| PATCH  | `/parcels/:id/assign`    | Assign rider to parcel                  | Yes           | Admin only  |
+| PATCH  | `/parcels/:id/status`    | Update parcel delivery status           | Yes           | Admin/Rider |
+| DELETE | `/parcels/:id`           | Delete parcel                           | Yes           | Admin only  |
+| POST   | `/payments`              | Record payment and update parcel status | Yes           | User/Admin  |
+| POST   | `/create-payment-intent` | Create Stripe payment intent            | Yes           | User/Admin  |
+| GET    | `/dashboard-data`        | Get dashboard stats                     | No            | All         |
+
+> For full API details, please check the source code or API documentation folder (if available).
+
+---
+
+## Folder Structure
+
+```
 /server
   |-- firebase_admin_key.json
   |-- controllers/
@@ -134,6 +173,7 @@ Edit
   |-- routes/
   |-- utils/
   |-- server.js
+
 /client
   |-- src/
       |-- components/
@@ -142,30 +182,46 @@ Edit
       |-- services/
       |-- App.jsx
       |-- main.jsx
-Contributing
+```
+
+---
+
+## Contributing
+
 Contributions are welcome! Please follow these steps:
 
-Fork the repository
+1. Fork the repository
+2. Create a feature branch
 
-Create a feature branch (git checkout -b feature-name)
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes
 
-Commit your changes (git commit -m "Add some feature")
+   ```bash
+   git commit -m "Add some feature"
+   ```
+4. Push to your branch
 
-Push to your branch (git push origin feature-name)
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request
 
-Open a Pull Request
+> Please ensure your code follows existing style guidelines and passes tests.
 
-Please ensure your code follows existing style guidelines and passes tests.
+---
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## License
 
-Contact
-Created by Tazminur Rahman Tanim - feel free to contact me!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Email: tanimkhalifa55@gmail.com 
+---
 
-GitHub: https://github.com/tazminur12
+## Contact
 
-LinkedIn: https://linkedin.com/in/yourprofile
-      
+Created by **Tazminur Rahman Tanim** — feel free to reach out!
+
+* 📧 Email: [tanimkhalifa55@gmail.com](mailto:tanimkhalifa55@gmail.com)
+* 💻 GitHub: [https://github.com/tazminur12](https://github.com/tazminur12)
+* 🔗 LinkedIn: [https://linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
