@@ -121,3 +121,42 @@ graph TD
     E --> G
     F --> H[Stripe]
     B --> I[Admin Dashboard]
+
+Database Schema
+
+erDiagram
+    USER ||--o{ PARCEL : creates
+    USER {
+        string _id
+        string email
+        string role
+        string displayName
+        timestamp createdAt
+    }
+    
+    RIDER {
+        string userId
+        string vehicleType
+        string licensePlate
+        bool isAvailable
+        location currentLocation
+    }
+    
+    PARCEL ||--o{ DELIVERY_EVENT : has
+    PARCEL {
+        string _id
+        string senderId
+        object recipient
+        string status
+        object dimensions
+        string riderId
+        timestamp createdAt
+    }
+    
+    DELIVERY_EVENT {
+        string parcelId
+        string eventType
+        timestamp timestamp
+        string location
+        string notes
+    }
