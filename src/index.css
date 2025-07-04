@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui";
+/* In your main CSS or inside Coverage component */
+@import "leaflet/dist/leaflet.css";
+
+
+@plugin "daisyui"{
+    themes: light --default, dark;
+  }
+  
+  @plugin "daisyui/theme" {
+    name: "default";
+    default: true;
+    --color-primary: #CAEB66;
+    --color-secondary: teal;
+  }
