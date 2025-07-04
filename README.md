@@ -1,8 +1,3 @@
-Certainly! Here's your **entire README** properly formatted inside a single clean Markdown block, including all the sections you've listed with corrections and formatting fixes (like list structure, code blocks, and proper headings):
-
----
-
-````markdown
 # First Shift Courier Service 🚚
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
